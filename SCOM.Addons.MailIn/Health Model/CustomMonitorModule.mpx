@@ -1,0 +1,252 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<TypeDefinitions>
+		<ModuleTypes>
+
+			<!-- SIG.Network.SolarWinds.NPM.TestNode.PropertyBag.Filtered -->
+			<DataSourceModuleType ID="SCOM.Addons.MailIn.TestNode.PropertyBag.Filtered" Accessibility="Internal" Batching="false">
+				<Configuration>
+					<xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="UniqueTitle" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="XMLConfigFilePath" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="SCOMAlertResetType" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />					
+					<xsd:element name="EmlDirectory" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="EmlArchive" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="NoOfLinesFromTop" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+				</Configuration>
+				<OverrideableParameters>
+					<OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+					<OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+					<OverrideableParameter ID="XMLConfigFilePath" Selector="$Config/XMLConfigFilePath$" ParameterType="string" />
+					<OverrideableParameter ID="SCOMAlertResetType" Selector="$Config/SCOMAlertResetType$" ParameterType="string" />					
+					<OverrideableParameter ID="EmlDirectory" Selector="$Config/EmlDirectory$" ParameterType="string" />
+					<OverrideableParameter ID="EmlArchive" Selector="$Config/EmlArchive$" ParameterType="string" />
+					<OverrideableParameter ID="NoOfLinesFromTop" Selector="$Config/NoOfLinesFromTop$" ParameterType="int" />
+				</OverrideableParameters>
+				<ModuleImplementation Isolation="Any">
+					<Composite>
+						<MemberModules>
+							<DataSource ID="DS" TypeID="SCOM.Addons.MailIn.TestNode.PropertyBag">
+								<IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+								<SyncTime>$Config/SyncTime$</SyncTime>
+								<UniqueTitle>$Config/UniqueTitle$</UniqueTitle>
+								<XMLConfigFilePath>$Config/XMLConfigFilePath$</XMLConfigFilePath>
+								<SCOMAlertResetType>$Config/SCOMAlertResetType$</SCOMAlertResetType>								
+								<EmlDirectory>$Config/EmlDirectory$</EmlDirectory>
+								<EmlArchive>$Config/EmlArchive$</EmlArchive>
+								<NoOfLinesFromTop>$Config/NoOfLinesFromTop$</NoOfLinesFromTop>
+							</DataSource>
+							<ConditionDetection ID="Filter" TypeID="System!System.ExpressionFilter">
+								<Expression>
+									<SimpleExpression>
+										<ValueExpression>
+											<XPathQuery Type="String">Property[@Name="UniqueTitle"]</XPathQuery>
+										</ValueExpression>
+										<Operator>Equal</Operator>
+										<ValueExpression>
+											<Value Type="String">$Config/UniqueTitle$</Value>
+										</ValueExpression>
+									</SimpleExpression>
+								</Expression>
+							</ConditionDetection>
+						</MemberModules>
+						<Composition>
+							<Node ID="Filter">
+								<Node ID="DS" />
+							</Node>
+						</Composition>
+					</Composite>
+				</ModuleImplementation>
+				<OutputType>System!System.PropertyBagData</OutputType>
+			</DataSourceModuleType>
+
+			<!-- SCOM.Addons.MailIn.TestNode.PropertyBag -->
+			<DataSourceModuleType ID="SCOM.Addons.MailIn.TestNode.PropertyBag" Accessibility="Internal" Batching="false">
+				<Configuration>
+					<xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="UniqueTitle" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="XMLConfigFilePath" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="SCOMAlertResetType" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />					
+					<xsd:element name="EmlDirectory" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="EmlArchive" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="NoOfLinesFromTop" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+				</Configuration>
+				<OverrideableParameters>
+					<OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+					<OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+					<OverrideableParameter ID="XMLConfigFilePath" Selector="$Config/XMLConfigFilePath$" ParameterType="string" />
+					<OverrideableParameter ID="SCOMAlertResetType" Selector="$Config/SCOMAlertResetType$" ParameterType="string" />					
+					<OverrideableParameter ID="EmlDirectory" Selector="$Config/EmlDirectory$" ParameterType="string" />
+					<OverrideableParameter ID="EmlArchive" Selector="$Config/EmlArchive$" ParameterType="string" />
+					<OverrideableParameter ID="NoOfLinesFromTop" Selector="$Config/NoOfLinesFromTop$" ParameterType="int" />
+				</OverrideableParameters>
+				<ModuleImplementation Isolation="Any">
+					<Composite>
+						<MemberModules>
+							<DataSource ID="Schedule" TypeID="System!System.SimpleScheduler">
+								<IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+								<SyncTime>$Config/SyncTime$</SyncTime>
+							</DataSource>
+							<ProbeAction ID="Probe" TypeID="SCOM.Addons.MailIn.TestNode.Probe">
+								<XMLConfigFilePath>$Config/XMLConfigFilePath$</XMLConfigFilePath>
+								<SCOMAlertResetType>$Config/SCOMAlertResetType$</SCOMAlertResetType>								
+								<EmlDirectory>$Config/EmlDirectory$</EmlDirectory>
+								<EmlArchive>$Config/EmlArchive$</EmlArchive>
+								<NoOfLinesFromTop>$Config/NoOfLinesFromTop$</NoOfLinesFromTop>
+							</ProbeAction>
+						</MemberModules>
+						<Composition>
+							<Node ID="Probe">
+								<Node ID="Schedule" />
+							</Node>
+						</Composition>
+					</Composite>
+				</ModuleImplementation>
+				<OutputType>System!System.PropertyBagData</OutputType>
+			</DataSourceModuleType>
+
+			<!--SCOM.Addons.MailIn.TestNode.Probe -->
+			<ProbeActionModuleType ID="SCOM.Addons.MailIn.TestNode.Probe" Accessibility="Internal" Batching="false" PassThrough="false">
+				<Configuration>
+					<xsd:element name="XMLConfigFilePath" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="SCOMAlertResetType" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />					
+					<xsd:element name="EmlDirectory" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="EmlArchive" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="NoOfLinesFromTop" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+				</Configuration>
+				<ModuleImplementation Isolation="Any">
+					<Composite>
+						<MemberModules>
+							<ProbeAction ID="PSScript" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagProbe">
+								<ScriptName>Test-MailMonitorItems.ps1$</ScriptName>
+								<ScriptBody>$IncludeFileContent/Health Model/Test-MailMonitorItems.ps1$</ScriptBody>
+								<Parameters>
+									<Parameter>
+										<Name>XMLConfigFilePath</Name>
+										<Value>$Config/XMLConfigFilePath$</Value>
+									</Parameter>
+									<Parameter>
+										<Name>SCOMAlertResetType</Name>
+										<Value>$Config/SCOMAlertResetType$</Value>
+									</Parameter>									
+									<Parameter>
+										<Name>EmlDirectory</Name>
+										<Value>$Config/EmlDirectory$</Value>
+									</Parameter>
+									<Parameter>
+										<Name>EmlArchive</Name>
+										<Value>$Config/EmlArchive$</Value>
+									</Parameter>
+									<Parameter>
+										<Name>NoOfLinesFromTop</Name>
+										<Value>$Config/NoOfLinesFromTop$</Value>
+									</Parameter>
+								</Parameters>
+								<TimeoutSeconds>300</TimeoutSeconds>
+							</ProbeAction>
+						</MemberModules>
+						<Composition>
+							<Node ID="PSScript" />
+						</Composition>
+					</Composite>
+				</ModuleImplementation>
+				<OutputType>System!System.PropertyBagData</OutputType>
+				<InputType>System!System.BaseData</InputType>
+			</ProbeActionModuleType>
+
+		</ModuleTypes>
+
+		<MonitorTypes>
+
+			<UnitMonitorType ID="SCOM.Addons.MailIn.TestNode.MonitorType" Accessibility="Internal">
+				<MonitorTypeStates>
+					<MonitorTypeState ID="Success" NoDetection="false" />
+					<MonitorTypeState ID="Failure" NoDetection="false" />
+				</MonitorTypeStates>
+				<Configuration>
+					<xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="UniqueTitle" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="XMLConfigFilePath" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="SCOMAlertResetType" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />					
+					<xsd:element name="EmlDirectory" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="EmlArchive" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="NoOfLinesFromTop" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+				</Configuration>
+				<OverrideableParameters>
+					<OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+					<OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+					<OverrideableParameter ID="XMLConfigFilePath" Selector="$Config/XMLConfigFilePath$" ParameterType="string" />
+					<OverrideableParameter ID="SCOMAlertResetType" Selector="$Config/SCOMAlertResetType$" ParameterType="string" />					
+					<OverrideableParameter ID="EmlDirectory" Selector="$Config/EmlDirectory$" ParameterType="string" />
+					<OverrideableParameter ID="EmlArchive" Selector="$Config/EmlArchive$" ParameterType="string" />
+					<OverrideableParameter ID="NoOfLinesFromTop" Selector="$Config/NoOfLinesFromTop$" ParameterType="int" />
+				</OverrideableParameters>
+				<MonitorImplementation>
+					<MemberModules>
+						<DataSource ID="DataSource" TypeID="SCOM.Addons.MailIn.TestNode.PropertyBag.Filtered">
+							<IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+							<SyncTime>$Config/SyncTime$</SyncTime>
+							<UniqueTitle>$Config/UniqueTitle$</UniqueTitle>
+							<XMLConfigFilePath>$Config/XMLConfigFilePath$</XMLConfigFilePath>
+							<SCOMAlertResetType>$Config/SCOMAlertResetType$</SCOMAlertResetType>							
+							<EmlDirectory>$Config/EmlDirectory$</EmlDirectory>
+							<EmlArchive>$Config/EmlArchive$</EmlArchive>
+							<NoOfLinesFromTop>$Config/NoOfLinesFromTop$</NoOfLinesFromTop>
+						</DataSource>
+						<ProbeAction ID="PassThru" TypeID="System!System.PassThroughProbe" />
+						<ProbeAction ID="Probe" TypeID="SCOM.Addons.MailIn.TestNode.Probe">
+							<XMLConfigFilePath>$Config/XMLConfigFilePath$</XMLConfigFilePath>
+							<SCOMAlertResetType>$Config/SCOMAlertResetType$</SCOMAlertResetType>							
+							<EmlDirectory>$Config/EmlDirectory$</EmlDirectory>
+							<EmlArchive>$Config/EmlArchive$</EmlArchive>
+							<NoOfLinesFromTop>$Config/NoOfLinesFromTop$</NoOfLinesFromTop>              
+						</ProbeAction>
+						<ConditionDetection ID="FilterSuccess" TypeID="System!System.ExpressionFilter">
+							<Expression>
+								<SimpleExpression>
+									<ValueExpression>
+										<XPathQuery Type="String">Property[@Name='State']</XPathQuery>
+									</ValueExpression>
+									<Operator>Equal</Operator>
+									<ValueExpression>
+										<Value Type="String">Success</Value>
+									</ValueExpression>
+								</SimpleExpression>
+							</Expression>
+						</ConditionDetection>
+						<ConditionDetection ID="FilterFailure" TypeID="System!System.ExpressionFilter">
+							<Expression>
+								<SimpleExpression>
+									<ValueExpression>
+										<XPathQuery Type="String">Property[@Name='State']</XPathQuery>
+									</ValueExpression>
+									<Operator>Equal</Operator>
+									<ValueExpression>
+										<Value Type="String">Failure</Value>
+									</ValueExpression>
+								</SimpleExpression>
+							</Expression>
+						</ConditionDetection>
+					</MemberModules>
+					<RegularDetections>
+						<RegularDetection MonitorTypeStateID="Success">
+							<Node ID="FilterSuccess">
+								<Node ID="DataSource" />
+							</Node>
+						</RegularDetection>
+						<RegularDetection MonitorTypeStateID="Failure">
+							<Node ID="FilterFailure">
+								<Node ID="DataSource" />
+							</Node>
+						</RegularDetection>
+					</RegularDetections>
+				</MonitorImplementation>
+			</UnitMonitorType>
+
+		</MonitorTypes>
+
+	</TypeDefinitions>
+	
+</ManagementPackFragment>

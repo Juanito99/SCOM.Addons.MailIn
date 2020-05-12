@@ -1,0 +1,16 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Categories>
+    <Category ID="SCOM.Addons.MailIn.MailMonitorItem.ManualReset.Category" Target="SCOM.Addons.MailIn.MailMonitorItem.ManualReset.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="SCOM.Addons.MailIn.MailMonitorItem.TimerReset.Category" Target="SCOM.Addons.MailIn.MailMonitorItem.TimerReset.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+  </Categories>
+  <Presentation>
+    <ImageReferences>
+      <ImageReference ElementID="SCOM.Addons.MailIn.MailMonitorItem.ManualReset" ImageID="SCOM.Addons.MailIn.MailMonitorItem.ManualReset.Icon"/>
+      <ImageReference ElementID="SCOM.Addons.MailIn.MailMonitorItem.TimerReset" ImageID="SCOM.Addons.MailIn.MailMonitorItem.TimerReset.Icon"/>
+    </ImageReferences>
+  </Presentation>
+  <Resources>
+    <Image ID="SCOM.Addons.MailIn.MailMonitorItem.ManualReset.Icon" FileName="MailItem-Manual.png" Accessibility="Public" HasNullStream="false" Comment="MailItem-Monitor-ManualReset" />
+    <Image ID="SCOM.Addons.MailIn.MailMonitorItem.TimerReset.Icon" FileName="MailItem-Timer.png" Accessibility="Public" HasNullStream="false" Comment="MailItem-Monitor-TimerReset" />
+  </Resources>
+</ManagementPackFragment>

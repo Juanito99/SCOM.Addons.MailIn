@@ -1,0 +1,99 @@
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MonitoringServer*6*10*ClassType
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*13*10*ClassType
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem.ManualReset*24*10*ClassType
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem.TimerReset*25*10*ClassType
+Health Model\CustomMonitorModule.mpx*SCOM.Addons.MailIn.TestNode.PropertyBag.Filtered*6*5*DataSourceModuleType
+Health Model\CustomMonitorModule.mpx*SCOM.Addons.MailIn.TestNode.PropertyBag*64*5*DataSourceModuleType
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.Alert.Rule.Datasource*5*5*DataSourceModuleType
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CleanEmlArchive.Rule.Datasource*70*5*DataSourceModuleType
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CloseAlerts.Rule.Datasource*123*5*DataSourceModuleType
+Health Model\CustomMonitorModule.mpx*SCOM.Addons.MailIn.TestNode.Probe*110*5*ProbeActionModuleType
+Health Model\CustomMonitorModule.mpx*SCOM.Addons.MailIn.TestNode.MonitorType*162*5*UnitMonitorType
+Presentation\Icons.mpx*SCOM.Addons.MailIn.MailMonitorItem.ManualReset.Category*3*6*Category
+Presentation\Icons.mpx*SCOM.Addons.MailIn.MailMonitorItem.TimerReset.Category*4*6*Category
+Service Model\Discoveries\Discoveries.mptg.mpx*SCOM.Addons.MailIn.Discovery.SCOM.Addons.MailIn.MonitoringServer*6*8*Discovery
+Service Model\Discoveries\Discoveries.mptg.mpx*SCOM.Addons.MailIn.Discovery.SCOM.Addons.MailIn.MailMonitorItems*82*8*Discovery
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.Generic.Alert.Rule*176*5*Rule
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CleanEmlArchive.Rule*218*5*Rule
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CloseAlerts.Rule*258*5*Rule
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MonitoringServer.SmtpSerivce*6*8*UnitMonitor
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.TimerReset*24*8*UnitMonitor
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.ManualReset*55*8*UnitMonitor
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MailMonitorItems.TimerReset*6*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.TimerReset.Closed*67*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MonitoringServer*237*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.Rule.Closed*240*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.ManualReset.Closed*294*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MailMonitorItems.ManualReset*464*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.TimerReset*525*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.ManualReset*695*8*View
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.Rule*865*8*View
+Presentation\Folders.mpx*SCOM.Addons.MailIn.Folder*4*8*Folder
+Presentation\Folders.mpx*SCOM.Addons.MailIn.Folder.ClosedAlerts*5*8*Folder
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MailMonitorItems.TimerReset.FolderItem*921*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.TimerReset.Closed.FolderItem*922*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MonitoringServer.FolderItem*923*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.Rule.Closed.FolderItem*924*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.ManualReset.Closed.FolderItem*925*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MailMonitorItems.ManualReset.FolderItem*926*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.TimerReset.FolderItem*927*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.ManualReset.FolderItem*928*8*FolderItem
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.Rule.FolderItem*929*8*FolderItem
+Presentation\Icons.mpx*SCOM.Addons.MailIn.MailMonitorItem.ManualReset*8*8*ImageReference
+Presentation\Icons.mpx*SCOM.Addons.MailIn.MailMonitorItem.TimerReset*9*8*ImageReference
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.Generic.Alert.Rule.AlertMessage*302*5*StringResource
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CleanEmlArchive.Rule.AlertMessage*303*5*StringResource
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CloseAlerts.Rule.AlertMessage*304*5*StringResource
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MonitoringServer.SmtpSerivce.AlertMessage*90*8*StringResource
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.TimerReset.AlertMessage*91*8*StringResource
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.ManualReset.AlertMessage*92*8*StringResource
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.Generic.Alert.Rule*312*6*DisplayString
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.Generic.Alert.Rule.AlertMessage*316*6*DisplayString
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CleanEmlArchive.Rule*333*6*DisplayString
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CleanEmlArchive.Rule.AlertMessage*337*6*DisplayString
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CloseAlerts.Rule*354*6*DisplayString
+Health Model\CustomRuleModule.mpx*SCOM.Addons.MailIn.CloseAlerts.Rule.AlertMessage*358*6*DisplayString
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MonitoringServer.SmtpSerivce*98*10*DisplayString
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MonitoringServer.SmtpSerivce.AlertMessage*102*10*DisplayString
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MonitoringServer.SmtpSerivce*108*10*DisplayString*SubElementID*Running
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MonitoringServer.SmtpSerivce*112*10*DisplayString*SubElementID*NotRunning
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.TimerReset*116*10*DisplayString
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.TimerReset.AlertMessage*120*10*DisplayString
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.TimerReset*136*10*DisplayString*SubElementID*Success
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.TimerReset*140*10*DisplayString*SubElementID*Failure
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.ManualReset*144*10*DisplayString
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.ManualReset.AlertMessage*148*10*DisplayString
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.ManualReset*165*10*DisplayString*SubElementID*Success
+Health Model\Monitors.mptg.mpx*SCOM.Addons.MailIn.Monitor.SCOM.Addons.MailIn.MailItem.ManualReset*169*10*DisplayString*SubElementID*Failure
+Presentation\Folders.mpx*SCOM.Addons.MailIn.Folder*11*10*DisplayString
+Presentation\Folders.mpx*SCOM.Addons.MailIn.Folder.ClosedAlerts*15*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MailMonitorItems.TimerReset*935*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.TimerReset.Closed*939*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MonitoringServer*943*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.Rule.Closed*947*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.ManualReset.Closed*951*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.State.SCOM.Addons.MailIn.MailMonitorItems.ManualReset*955*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.TimerReset*959*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.ManualReset*963*10*DisplayString
+Presentation\Views.mptg.mpx*SCOM.Addons.MailIn.Alert.SCOM.Addons.MailIn.MonitoringServer.Rule*967*10*DisplayString
+Project.mpx*SCOM.Addons.MailIn*5*10*DisplayString
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MonitoringServer*36*10*DisplayString
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MonitoringServer*40*10*DisplayString*SubElementID*XMLConfigFilePath
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MonitoringServer*44*10*DisplayString*SubElementID*SmtpServerName
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MonitoringServer*48*10*DisplayString*SubElementID*EmlDirectory
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MonitoringServer*52*10*DisplayString*SubElementID*EmlArchive
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*56*10*DisplayString
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*60*10*DisplayString*SubElementID*SCOMAlertResetType
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*64*10*DisplayString*SubElementID*Description
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*68*10*DisplayString*SubElementID*MailBody
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*72*10*DisplayString*SubElementID*MailFrom
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*76*10*DisplayString*SubElementID*MailSourceServer
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*80*10*DisplayString*SubElementID*MailSubject
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*84*10*DisplayString*SubElementID*UniqueTitle
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem*88*10*DisplayString*SubElementID*SCOMAlertResetTimeInSeconds
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem.ManualReset*92*10*DisplayString
+Service Model\Classes\Definitions.mpx*SCOM.Addons.MailIn.MailMonitorItem.TimerReset*96*10*DisplayString
+Service Model\Discoveries\Discoveries.mptg.mpx*SCOM.Addons.MailIn.Discovery.SCOM.Addons.MailIn.MonitoringServer*115*10*DisplayString
+Service Model\Discoveries\Discoveries.mptg.mpx*SCOM.Addons.MailIn.Discovery.SCOM.Addons.MailIn.MailMonitorItems*119*10*DisplayString
+Presentation\Icons.mpx*SCOM.Addons.MailIn.MailMonitorItem.ManualReset.Icon*13*6*Image
+Presentation\Icons.mpx*SCOM.Addons.MailIn.MailMonitorItem.TimerReset.Icon*14*6*Image

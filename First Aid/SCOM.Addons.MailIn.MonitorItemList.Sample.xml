@@ -1,0 +1,22 @@
+<MailInMonitorList>	
+	<MailMonitorItem>
+		<UniqueTitle>P360 APM Issue</UniqueTitle>
+		<Description>Application errors in TEST system</Description>
+		<MailFrom>APM-C@yourcompany.abc</MailFrom>
+		<MailSubject></MailSubject>
+		<MailBody></MailBody>		
+		<MailSourceServer>Linux05</MailSourceServer>
+		<SCOMAlertResetType>Manual</SCOMAlertResetType>
+		<SCOMAlertResetTimeInSeconds></SCOMAlertResetTimeInSeconds>
+	</MailMonitorItem>
+	<MailMonitorItem>
+		<UniqueTitle>SAP Auto Job Error</UniqueTitle>
+		<Description></Description>
+		<MailFrom>NightJobber</MailFrom>
+		<MailSubject>ZLAS_STATUS</MailSubject>
+		<MailBody></MailBody>		
+		<MailSourceServer>SAPAppSrv05</MailSourceServer>
+		<SCOMAlertResetType>Timer</SCOMAlertResetType>
+		<SCOMAlertResetTimeInSeconds>7200</SCOMAlertResetTimeInSeconds>
+	</MailMonitorItem>	
+</MailInMonitorList>

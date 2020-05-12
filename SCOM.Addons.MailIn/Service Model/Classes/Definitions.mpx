@@ -1,0 +1,104 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+
+        <ClassType ID="SCOM.Addons.MailIn.MonitoringServer" Accessibility="Public" Abstract="false"  Base="Windows!Microsoft.Windows.ComputerRole" Hosted="true" Singleton="false" Extension="false">
+          <Property ID="SmtpServerName" Type="string" AutoIncrement="false" Key="true" CaseSensitive="false"  Required="false" Scale="0" />
+          <Property ID="XMLConfigFilePath" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false"  Required="true" Scale="0" />
+          <Property ID="EmlDirectory" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false"  Required="false" Scale="0" />
+          <Property ID="EmlArchive" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false"  Required="false" Scale="0" />          
+        </ClassType>
+
+        <ClassType ID="SCOM.Addons.MailIn.MailMonitorItem" Accessibility="Public" Abstract="true" Base="System!System.LogicalEntity" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="UniqueTitle" Type="string" AutoIncrement="false" Key="true" CaseSensitive="false" Required="true" Scale="0" />
+          <Property ID="Description" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="MailFrom" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="true" Scale="0" />
+          <Property ID="MailSubject" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="MailBody" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="MailSourceServer" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+          <Property ID="SCOMAlertResetType" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="true" Scale="0" />
+          <Property ID="SCOMAlertResetTimeInSeconds" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" Required="false" Scale="0" />
+        </ClassType>
+
+        <ClassType ID="SCOM.Addons.MailIn.MailMonitorItem.ManualReset" Accessibility="Public" Abstract="false" Base="SCOM.Addons.MailIn.MailMonitorItem" Hosted="false" Singleton="false" Extension="false" />
+        <ClassType ID="SCOM.Addons.MailIn.MailMonitorItem.TimerReset" Accessibility="Public" Abstract="false" Base="SCOM.Addons.MailIn.MailMonitorItem" Hosted="false" Singleton="false" Extension="false" />
+
+      </ClassTypes>
+
+    </EntityTypes>
+  </TypeDefinitions>
+  
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MonitoringServer">
+          <Name>Monitoring Server</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MonitoringServer" SubElementID="XMLConfigFilePath">
+          <Name>XML Config File Path</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MonitoringServer" SubElementID="SmtpServerName">
+          <Name>SmtpServerNmae</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MonitoringServer" SubElementID="EmlDirectory">
+          <Name>Eml Directory</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MonitoringServer" SubElementID="EmlArchive">
+          <Name>Eml Archive</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem">
+          <Name>MailMonitor Item</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="SCOMAlertResetType">
+          <Name>SCOM Alert Reset Type</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="Description">
+          <Name>Description</Name>
+        </DisplayString>
+        
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="MailBody">
+          <Name>Mail Body</Name>
+        </DisplayString>
+        
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="MailFrom">
+          <Name>Mail From</Name>
+        </DisplayString>
+        
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="MailSourceServer">
+          <Name>Mail Source Server</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="MailSubject">
+          <Name>Mail Subject</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="UniqueTitle">
+          <Name>Unique Title</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem" SubElementID="SCOMAlertResetTimeInSeconds">
+          <Name>SCOM Alert Monitor Reset (in Seconds)</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem.ManualReset">
+          <Name>MailMonitorItem ManualReset</Name>
+        </DisplayString>
+
+        <DisplayString ElementID="SCOM.Addons.MailIn.MailMonitorItem.TimerReset">
+          <Name>MailMonitorItem TimerReset</Name>
+        </DisplayString>
+        
+      </DisplayStrings>
+
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

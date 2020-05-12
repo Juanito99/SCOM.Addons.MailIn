@@ -1,0 +1,378 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<TypeDefinitions>
+		<ModuleTypes>
+			<DataSourceModuleType ID="SCOM.Addons.MailIn.Alert.Rule.Datasource" Accessibility="Internal" Batching="false">
+				<Configuration>
+					<xsd:element minOccurs="1" type="xsd:integer" name="IntervalSeconds" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="0" type="xsd:string" name="SyncTime" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="1" type="xsd:integer" name="TimeoutSeconds" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />          
+					<xsd:element minOccurs="1" type="xsd:string" name="EmlDirectory" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="1" type="xsd:string" name="EmlArchive" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="0" type="xsd:integer" name="NoOfLinesFromTop" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element name="XMLConfigFilePath" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+				</Configuration>
+				<OverrideableParameters>
+					<OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+					<OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+					<OverrideableParameter ID="TimeoutSeconds" Selector="$Config/TimeoutSeconds$" ParameterType="int" />          
+					<OverrideableParameter ID="EmlDirectory" Selector="$Config/EmlDirectory$" ParameterType="string" />
+					<OverrideableParameter ID="EmlArchive" Selector="$Config/EmlArchive$" ParameterType="string" />
+					<OverrideableParameter ID="NoOfLinesFromTop" Selector="$Config/NoOfLinesFromTop$" ParameterType="int" />
+					<OverrideableParameter ID="XMLConfigFilePath" Selector="$Config/XMLConfigFilePath$" ParameterType="string" />
+				</OverrideableParameters>
+				<ModuleImplementation Isolation="Any">
+					<Composite>
+						<MemberModules>
+							<DataSource ID="Scheduler" TypeID="System!System.Scheduler">
+								<Scheduler>
+									<SimpleReccuringSchedule>
+										<Interval Unit="Seconds">$Config/IntervalSeconds$</Interval>
+										<SyncTime>$Config/SyncTime$</SyncTime>
+									</SimpleReccuringSchedule>
+									<ExcludeDates />
+								</Scheduler>
+							</DataSource>
+							<ProbeAction ID="PA" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagProbe">                
+								<ScriptName>Generic-MailMonitorRule.ps1</ScriptName>
+								<ScriptBody>$IncludeFileContent/Health Model/Generic-MailMonitorRule.ps1$</ScriptBody>
+								<Parameters>
+									<Parameter>
+										<Name>EmlDirectory</Name>
+										<Value>$Config/EmlDirectory$</Value>                    
+									</Parameter>
+									<Parameter>
+										<Name>EmlArchive</Name>
+										<Value>$Config/EmlArchive$</Value>
+									</Parameter>
+									<Parameter>
+										<Name>NoOfLinesFromTop</Name>
+										<Value>$Config/NoOfLinesFromTop$</Value>
+									</Parameter>
+									<Parameter>
+										<Name>XMLConfigFilePath</Name>
+										<Value>$Config/XMLConfigFilePath$</Value>
+									</Parameter>
+								</Parameters>
+								<TimeoutSeconds>$Config/TimeoutSeconds$</TimeoutSeconds>
+							</ProbeAction>			  
+						</MemberModules>
+						<Composition>
+							<Node ID="PA">
+								<Node ID="Scheduler" />
+							</Node>
+						</Composition>
+					</Composite>
+				</ModuleImplementation>
+				<OutputType>System!System.PropertyBagData</OutputType>
+			</DataSourceModuleType>
+			
+			<DataSourceModuleType ID="SCOM.Addons.MailIn.CleanEmlArchive.Rule.Datasource" Accessibility="Internal" Batching="false">
+				<Configuration>
+					<xsd:element minOccurs="1" type="xsd:integer" name="IntervalSeconds" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="0" type="xsd:string" name="SyncTime" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="1" type="xsd:integer" name="TimeoutSeconds" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />          					
+					<xsd:element minOccurs="1" type="xsd:string" name="EmlArchive" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />					
+					<xsd:element minOccurs="1" type="xsd:integer" name="EmlRetentionHours" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />			
+				</Configuration>
+				<OverrideableParameters>
+					<OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+					<OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+					<OverrideableParameter ID="TimeoutSeconds" Selector="$Config/TimeoutSeconds$" ParameterType="int" />          					
+					<OverrideableParameter ID="EmlArchive" Selector="$Config/EmlArchive$" ParameterType="string" />					
+					<OverrideableParameter ID="EmlRetentionHours" Selector="$Config/EmlRetentionHours$" ParameterType="int" />			
+				</OverrideableParameters>
+				<ModuleImplementation Isolation="Any">
+					<Composite>
+						<MemberModules>
+							<DataSource ID="Scheduler" TypeID="System!System.Scheduler">
+								<Scheduler>
+									<SimpleReccuringSchedule>
+										<Interval Unit="Seconds">$Config/IntervalSeconds$</Interval>
+										<SyncTime>$Config/SyncTime$</SyncTime>
+									</SimpleReccuringSchedule>
+									<ExcludeDates />
+								</Scheduler>
+							</DataSource>
+							<ProbeAction ID="PA" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagProbe">                
+								<ScriptName>Clean-EmlArchive.ps1</ScriptName>
+								<ScriptBody>$IncludeFileContent/Health Model/Clean-EmlArchive.ps1$</ScriptBody>
+								<Parameters>									
+									<Parameter>
+										<Name>EmlArchive</Name>
+										<Value>$Config/EmlArchive$</Value>
+									</Parameter>
+									<Parameter>
+										<Name>EmlRetentionHours</Name>
+										<Value>$Config/EmlRetentionHours$</Value>
+									</Parameter>									
+								</Parameters>
+								<TimeoutSeconds>$Config/TimeoutSeconds$</TimeoutSeconds>
+							</ProbeAction>			  
+						</MemberModules>
+						<Composition>
+							<Node ID="PA">
+								<Node ID="Scheduler" />
+							</Node>
+						</Composition>
+					</Composite>
+				</ModuleImplementation>
+				<OutputType>System!System.PropertyBagData</OutputType>
+			</DataSourceModuleType>
+
+			<DataSourceModuleType ID="SCOM.Addons.MailIn.CloseAlerts.Rule.Datasource" Accessibility="Internal" Batching="false">
+				<Configuration>
+					<xsd:element minOccurs="1" type="xsd:integer" name="IntervalSeconds" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="0" type="xsd:string" name="SyncTime" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="1" type="xsd:integer" name="TimeoutSeconds" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+					<xsd:element minOccurs="1" type="xsd:integer" name="AlertRetentionHours" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+				</Configuration>
+				<OverrideableParameters>
+					<OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+					<OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+					<OverrideableParameter ID="TimeoutSeconds" Selector="$Config/TimeoutSeconds$" ParameterType="int" />
+					<OverrideableParameter ID="AlertRetentionHours" Selector="$Config/AlertRetentionHours$" ParameterType="int" />
+				</OverrideableParameters>
+				<ModuleImplementation Isolation="Any">
+					<Composite>
+						<MemberModules>
+							<DataSource ID="Scheduler" TypeID="System!System.Scheduler">
+								<Scheduler>
+									<SimpleReccuringSchedule>
+										<Interval Unit="Seconds">$Config/IntervalSeconds$</Interval>
+										<SyncTime>$Config/SyncTime$</SyncTime>
+									</SimpleReccuringSchedule>
+									<ExcludeDates />
+								</Scheduler>
+							</DataSource>
+							<ProbeAction ID="PA" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagProbe">
+								<ScriptName>Clean-GenericMailAlerts.ps1</ScriptName>
+								<ScriptBody>$IncludeFileContent/Health Model/Clean-GenericMailAlerts.ps1$</ScriptBody>
+								<Parameters>
+									<Parameter>
+										<Name>AlertRetentionHours</Name>
+										<Value>$Config/AlertRetentionHours$</Value>
+									</Parameter>
+								</Parameters>
+								<TimeoutSeconds>$Config/TimeoutSeconds$</TimeoutSeconds>
+							</ProbeAction>
+						</MemberModules>
+						<Composition>
+							<Node ID="PA">
+								<Node ID="Scheduler" />
+							</Node>
+						</Composition>
+					</Composite>
+				</ModuleImplementation>
+				<OutputType>System!System.PropertyBagData</OutputType>
+			</DataSourceModuleType>
+			
+		</ModuleTypes>
+	</TypeDefinitions>
+	
+	<Monitoring>
+		<Rules>
+			
+			<Rule ID="SCOM.Addons.MailIn.Generic.Alert.Rule" Enabled="true" Target="SCOM.Addons.MailIn.MonitoringServer" ConfirmDelivery="true" Remotable="true" Priority="Normal" DiscardLevel="100">
+				<Category>Alert</Category>
+				<DataSources>
+					<DataSource ID="DS" TypeID="SCOM.Addons.MailIn.Alert.Rule.Datasource">
+						<IntervalSeconds>600</IntervalSeconds>
+						<SyncTime></SyncTime>
+						<TimeoutSeconds>120</TimeoutSeconds>
+						<EmlDirectory>C:\inetpub\mailroot\Drop</EmlDirectory>
+						<EmlArchive>C:\Temp\MailArchive</EmlArchive>
+						<NoOfLinesFromTop>100</NoOfLinesFromTop>
+						<XMLConfigFilePath>C:\Temp\SCOM.Addons.MailIn.MonitorItemList.xml</XMLConfigFilePath>
+					</DataSource>
+				</DataSources>
+				<ConditionDetection ID="CD" TypeID="System!System.ExpressionFilter">
+			<Expression>
+				<SimpleExpression>
+				<ValueExpression>
+					<XPathQuery Type="String">Property[@Name='Result']</XPathQuery>
+				</ValueExpression>
+				<Operator>Equal</Operator>
+				<ValueExpression>
+					<Value Type="String">BAD</Value>
+				</ValueExpression>
+				</SimpleExpression>
+			</Expression>
+				</ConditionDetection>
+				<WriteActions>
+					<WriteAction ID="WA" TypeID="Health!System.Health.GenerateAlert">
+						<Priority>1</Priority> 
+						<Severity>1</Severity> 
+						<AlertMessageId>$MPElement[Name="SCOM.Addons.MailIn.Generic.Alert.Rule.AlertMessage"]$</AlertMessageId>
+						<AlertParameters>              
+							<AlertParameter1>$Data/Property[@Name='mSubject']$</AlertParameter1>
+							<AlertParameter2>$Data/Property[@Name='mFrom']$</AlertParameter2>
+							<AlertParameter3>$Data/Property[@Name='mBody']$</AlertParameter3>
+							<AlertParameter4>$Data/Property[@Name='mMetaInfo']$</AlertParameter4>
+						</AlertParameters>
+						<Suppression />              
+					</WriteAction>
+				</WriteActions>
+			</Rule>
+
+			<Rule ID="SCOM.Addons.MailIn.CleanEmlArchive.Rule" Enabled="true" Target="SCOM.Addons.MailIn.MonitoringServer" ConfirmDelivery="true" Remotable="true" Priority="Normal" DiscardLevel="100">
+				<Category>Custom</Category>
+				<DataSources>
+					<DataSource ID="DS" TypeID="SCOM.Addons.MailIn.CleanEmlArchive.Rule.Datasource">
+						<IntervalSeconds>600</IntervalSeconds>
+						<SyncTime></SyncTime>
+						<TimeoutSeconds>120</TimeoutSeconds>
+						<EmlArchive>C:\Temp\MailArchive</EmlArchive>
+						<EmlRetentionHours>720</EmlRetentionHours>
+					</DataSource>
+				</DataSources>
+				<ConditionDetection ID="CD" TypeID="System!System.ExpressionFilter">
+					<Expression>
+						<SimpleExpression>
+							<ValueExpression>
+								<XPathQuery Type="String">Property[@Name='Result']</XPathQuery>
+							</ValueExpression>
+							<Operator>Equal</Operator>
+							<ValueExpression>
+								<Value Type="String">BAD</Value>
+							</ValueExpression>
+						</SimpleExpression>
+					</Expression>
+				</ConditionDetection>
+				<WriteActions>
+					<WriteAction ID="WA" TypeID="Health!System.Health.GenerateAlert">
+						<Priority>1</Priority>
+						<Severity>0</Severity>
+						<AlertMessageId>$MPElement[Name="SCOM.Addons.MailIn.CleanEmlArchive.Rule.AlertMessage"]$</AlertMessageId>
+						<AlertParameters>
+							<AlertParameter1>$Data/Property[@Name='Title']$</AlertParameter1>
+							<AlertParameter2>$Data/Property[@Name='EmlCount']$</AlertParameter2>
+							<AlertParameter3>$Data/Property[@Name='EmlToDel']$</AlertParameter3>
+							<AlertParameter4>$Data/Property[@Name='EmlInfo']$</AlertParameter4>
+						</AlertParameters>
+						<Suppression />
+					</WriteAction>
+				</WriteActions>
+			</Rule>
+
+			<Rule ID="SCOM.Addons.MailIn.CloseAlerts.Rule" Enabled="true" Target="SCOM.Addons.MailIn.MonitoringServer" ConfirmDelivery="true" Remotable="true" Priority="Normal" DiscardLevel="100">
+				<Category>Custom</Category>
+				<DataSources>
+					<DataSource ID="DS" TypeID="SCOM.Addons.MailIn.CloseAlerts.Rule.Datasource">
+						<IntervalSeconds>7200</IntervalSeconds>
+						<SyncTime></SyncTime>
+						<TimeoutSeconds>120</TimeoutSeconds>
+						<AlertRetentionHours>24</AlertRetentionHours>
+					</DataSource>
+				</DataSources>
+				<ConditionDetection ID="CD" TypeID="System!System.ExpressionFilter">
+					<Expression>
+						<SimpleExpression>
+							<ValueExpression>
+								<XPathQuery Type="String">Property[@Name='Result']</XPathQuery>
+							</ValueExpression>
+							<Operator>Equal</Operator>
+							<ValueExpression>
+								<Value Type="String">BAD</Value>
+							</ValueExpression>
+						</SimpleExpression>
+					</Expression>
+				</ConditionDetection>
+				<WriteActions>
+					<WriteAction ID="WA" TypeID="Health!System.Health.GenerateAlert">
+						<Priority>1</Priority>
+						<Severity>0</Severity>
+						<AlertMessageId>$MPElement[Name="SCOM.Addons.MailIn.CloseAlerts.Rule.AlertMessage"]$</AlertMessageId>
+						<AlertParameters>
+							<AlertParameter1>$Data/Property[@Name='Title']$</AlertParameter1>
+							<AlertParameter2>$Data/Property[@Name='GenericAlertInfo']$</AlertParameter2>
+							<AlertParameter3>$Data/Property[@Name='CleanEmlArchiveAlertInfo']$</AlertParameter3>
+							<AlertParameter4>$Data/Property[@Name='ClosedAlertsAlertInfo']$</AlertParameter4>
+						</AlertParameters>
+						<Suppression />
+					</WriteAction>
+				</WriteActions>
+			</Rule>      
+
+		</Rules>
+	</Monitoring>
+	
+	<Presentation>
+		<StringResources>
+			<StringResource ID="SCOM.Addons.MailIn.Generic.Alert.Rule.AlertMessage" />
+			<StringResource ID="SCOM.Addons.MailIn.CleanEmlArchive.Rule.AlertMessage" />
+			<StringResource ID="SCOM.Addons.MailIn.CloseAlerts.Rule.AlertMessage" />
+		</StringResources>
+	</Presentation>
+	
+	<LanguagePacks>
+		<LanguagePack ID="ENU" IsDefault="true">
+			<DisplayStrings>
+				
+				<DisplayString ElementID="SCOM.Addons.MailIn.Generic.Alert.Rule">
+					<Name>MailIn Generic Alert Rule</Name>
+					<Description>Creates generic alerts for E-Mails that are sent to SCOM.</Description>
+				</DisplayString>        
+				<DisplayString ElementID="SCOM.Addons.MailIn.Generic.Alert.Rule.AlertMessage">
+					<Name>MailIn Generic Alert ( {1} )</Name>
+					<Description>
+						From:
+						{1}
+
+						Subject:
+						{0}
+
+						Body:
+						{2}
+
+						MetaInfo:
+						{3}
+					</Description>
+				</DisplayString>
+				
+				<DisplayString ElementID="SCOM.Addons.MailIn.CleanEmlArchive.Rule">
+					<Name>MailIn Generic CleanEmlArchive.Rule</Name>
+					<Description>Removes archived eml files in archive folder older than confiugured retention. </Description>
+				</DisplayString>
+				<DisplayString ElementID="SCOM.Addons.MailIn.CleanEmlArchive.Rule.AlertMessage">
+					<Name>MailIn Clean EmlArchive Rule</Name>
+					<Description>
+						Title:
+						{0}
+
+						Eml Files in Archive:
+						{1}
+
+						Deleted Eml File Number:
+						{2}
+
+						Deleted Eml File details:
+						{3}
+					</Description>
+				</DisplayString>
+
+				<DisplayString ElementID="SCOM.Addons.MailIn.CloseAlerts.Rule">
+					<Name>MailIn CloseAlerts.Rule</Name>
+					<Description>Closes Generic Mail Alerts older than confiugured retention.</Description>
+				</DisplayString>
+				<DisplayString ElementID="SCOM.Addons.MailIn.CloseAlerts.Rule.AlertMessage">
+					<Name>MailIn Close Alerts Rule</Name>
+					<Description>
+						Title:
+						{0}
+
+						Generic Alert Info:
+						{1}
+
+						Clean EmlArchive Alert Info
+						{2}
+
+						ClosedAlerts Alert Info:
+						{3}
+					</Description>
+				</DisplayString>
+			</DisplayStrings>
+		</LanguagePack>
+	</LanguagePacks>
+	
+</ManagementPackFragment>
