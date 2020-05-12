@@ -1,5 +1,6 @@
 ## SCOM.Addons.MailIn
- This Management Pack enriches SCOM with an E-Mail interface. Alerts can be created either by a generic rule or via a monitor that reacts on your custom filter pattern.
+ This Management Pack enriches SCOM with an E-Mail interface. 
+ Alerts can be created either by a generic rule or via a monitor that reacts on your custom filter pattern.
 
 
 
@@ -22,10 +23,9 @@
 
 ### Downloads:
 
-[ManagementPack-XML](https://github.com/Juanito99/Windows.Server.Webservice.BasicWatcher/blob/master/Windows.Server.Webservice.BasicWatcher/bin/Debug/Windows.Server.Webservice.BasicWatcher.xml) 
+[ManagementPack-MP](https://github.com/Juanito99/SCOM.Addons.MailIn/blob/master/SCOM.Addons.MailIn/bin/Debug/SCOM.Addons.MailIn.mpb) 
 
-[ManagementPack-MP](https://github.com/Juanito99/Windows.Server.Webservice.BasicWatcher/blob/master/Windows.Server.Webservice.BasicWatcher/bin/Debug/Windows.Server.Webservice.BasicWatcher.mpb) 
-
+[ManagementPack-XML](https://github.com/Juanito99/SCOM.Addons.MailIn/blob/master/SCOM.Addons.MailIn/bin/Debug/SCOM.Addons.MailIn.XML) 
 
 
 
