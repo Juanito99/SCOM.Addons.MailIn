@@ -1,0 +1,142 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance1cb8bbbf42bb4bd8ba0ce5a2d4aaa2da" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>Windows!Microsoft.Windows.CheckNTServiceStateMonitorType</MonitorType>
+        <MonitorConfig>&lt;ComputerName&gt;$Target/Host/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$&lt;/ComputerName&gt;&lt;ServiceName&gt;SMTPSVC&lt;/ServiceName&gt;&lt;CheckStartupType /&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Running</OperationalStateId>
+            <OperationalStateDisplayName>Running</OperationalStateDisplayName>
+            <MonitorTypeStateId>Running</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>NotRunning</OperationalStateId>
+            <OperationalStateDisplayName>NotRunning</OperationalStateDisplayName>
+            <MonitorTypeStateId>NotRunning</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.SCOM.Addons.MailIn.MonitoringServer.SmtpSerivce</Id>
+        <DisplayName>Smtp Service Mointor (SCOM Addons MailIn)</DisplayName>
+        <Description>Monitors the SMTP Service</Description>
+        <Target>SCOM.Addons.MailIn.MonitoringServer</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>Smtp Server Monitor (SCOM Addons MailIn)</AlertName>
+        <AlertDescription>Smtp Service down!
+
+No alerts via MailIn can be generated.</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceddeafd248ac64e40ac2deeeeec0e45d6" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>SCOM.Addons.MailIn.TestNode.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;UniqueTitle&gt;$Target/Property[Type="SCOM.Addons.MailIn.MailMonitorItem.TimerReset"]/UniqueTitle$&lt;/UniqueTitle&gt;&lt;XMLConfigFilePath&gt;C:\Temp\SCOM.Addons.MailIn.MonitorItemList.xml&lt;/XMLConfigFilePath&gt;&lt;SCOMAlertResetType&gt;Timer&lt;/SCOMAlertResetType&gt;&lt;EmlDirectory&gt;C:\inetpub\mailroot\drop&lt;/EmlDirectory&gt;&lt;EmlArchive&gt;C:\Temp\MailArchive&lt;/EmlArchive&gt;&lt;NoOfLinesFromTop&gt;100&lt;/NoOfLinesFromTop&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Success</OperationalStateId>
+            <OperationalStateDisplayName>Success</OperationalStateDisplayName>
+            <MonitorTypeStateId>Success</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>Failure</OperationalStateId>
+            <OperationalStateDisplayName>Failure</OperationalStateDisplayName>
+            <MonitorTypeStateId>Failure</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.SCOM.Addons.MailIn.MailItem.TimerReset</Id>
+        <DisplayName>MailItem Monitor - Timer Reset (SCOM Addons MailIn)</DisplayName>
+        <Description>Reacts on emails matching the configured pattern. Specified timer value will reset automatically.</Description>
+        <Target>SCOM.Addons.MailIn.MailMonitorItem.TimerReset</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>MailItem - TimerReset - $Data/Context/Property[@Name='UniqueTitle']$</AlertName>
+        <AlertDescription>Mailitem - TimerReset - Issues
+
+UniqueTitle:  $Data/Context/Property[@Name='UniqueTitle']$
+
+MailSubject:  $Data/Context/Property[@Name='MailSubject']$
+
+MailFrom:  $Data/Context/Property[@Name='MailFrom']$
+
+MailBody:  $Data/Context/Property[@Name='MailBody']$
+
+MailSourceServer:  $Data/Context/Property[@Name='MailSourceServer']$
+
+mMetaInfo:  $Data/Context/Property[@Name='mMetaInfo']$</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance2e7ef0b6f58c4efc97f9bd47e8dfaaee" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>SCOM.Addons.MailIn.TestNode.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;UniqueTitle&gt;$Target/Property[Type="SCOM.Addons.MailIn.MailMonitorItem.ManualReset"]/UniqueTitle$&lt;/UniqueTitle&gt;&lt;XMLConfigFilePath&gt;C:\Temp\SCOM.Addons.MailIn.MonitorItemList.xml&lt;/XMLConfigFilePath&gt;&lt;SCOMAlertResetType&gt;Manual&lt;/SCOMAlertResetType&gt;&lt;EmlDirectory&gt;C:\inetpub\mailroot\drop&lt;/EmlDirectory&gt;&lt;EmlArchive&gt;C:\Temp\MailArchive&lt;/EmlArchive&gt;&lt;NoOfLinesFromTop&gt;100&lt;/NoOfLinesFromTop&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>Success</OperationalStateId>
+            <OperationalStateDisplayName>Success</OperationalStateDisplayName>
+            <MonitorTypeStateId>Success</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>Failure</OperationalStateId>
+            <OperationalStateDisplayName>Failure</OperationalStateDisplayName>
+            <MonitorTypeStateId>Failure</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.SCOM.Addons.MailIn.MailItem.ManualReset</Id>
+        <DisplayName>MailItem Monitor - Manual Reset (SCOM Addons MailIn)</DisplayName>
+        <Description>Reacts on emails matching the configured pattern. Requires SCOM Admin reset.</Description>
+        <Target>SCOM.Addons.MailIn.MailMonitorItem.ManualReset</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>MailItem - ManualReset - $Data/Context/Property[@Name='UniqueTitle']$</AlertName>
+        <AlertDescription>Mailitem - ManualReset - Issues
+
+UniqueTitle: $Data/Context/Property[@Name='UniqueTitle']$
+
+MailSubject:  $Data/Context/Property[@Name='MailSubject']$
+
+MailFrom:  $Data/Context/Property[@Name='MailFrom']$
+
+MailBody:  $Data/Context/Property[@Name='MailBody']$
+
+MailSourceServer:  $Data/Context/Property[@Name='MailSourceServer']$
+
+mMetaInfo:  $Data/Context/Property[@Name='mMetaInfo']$
+</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

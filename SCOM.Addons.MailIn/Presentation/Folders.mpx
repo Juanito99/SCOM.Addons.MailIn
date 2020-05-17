@@ -1,0 +1,22 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Presentation>
+    <Folders>
+      <Folder ID="SCOM.Addons.MailIn.Folder" Accessibility="Internal" ParentFolder="SC!Microsoft.SystemCenter.Monitoring.ViewFolder.Root" />
+      <Folder ID="SCOM.Addons.MailIn.Folder.ClosedAlerts" Accessibility="Internal" ParentFolder="SCOM.Addons.MailIn.Folder" />
+    </Folders>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="SCOM.Addons.MailIn.Folder">
+          <Name>SCOM Addons MailIn</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="SCOM.Addons.MailIn.Folder.ClosedAlerts">
+          <Name>Closed Alerts</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>
