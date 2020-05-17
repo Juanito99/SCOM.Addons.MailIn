@@ -2,17 +2,16 @@
  This Management Pack enriches SCOM with an E-Mail interface. 
  Alerts can be created either by a generic rule or via a monitor that reacts on your custom filter pattern.
 
+### Soltion Overview:
+![Solution_Overview](https://raw.githubusercontent.com/Juanito99/SCOM.Addons.MailIn/master/PicturesForGitWebSite/SolutionOverview.png)
 
 
-### Alert Views:
+### Views:
 ![GenercMail_Alerts](https://raw.githubusercontent.com/Juanito99/SCOM.Addons.MailIn/master/PicturesForGitWebSite/GenericMailAlerts.png)
-
-![MailItem_Alerts](https://raw.githubusercontent.com/Juanito99/SCOM.Addons.MailIn/master/PicturesForGitWebSite/MailItemAlerts.png)
-
 
 
 ### State View:
-![CustomMailFiler_Monitors](https://raw.githubusercontent.com/Juanito99/SCOM.Addons.MailIn/master/PicturesForGitWebSite/CustomMailFilterMonitors.png)
+![MailItemTimerReset](https://raw.githubusercontent.com/Juanito99/SCOM.Addons.MailIn/master/PicturesForGitWebSite/MailItemTimerReset.png)
 
 
 
