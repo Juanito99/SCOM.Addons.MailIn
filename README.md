@@ -10,7 +10,6 @@
 ![GenercMail_Alerts](https://raw.githubusercontent.com/Juanito99/SCOM.Addons.MailIn/master/PicturesForGitWebSite/GenericMailAlerts.png)
 
 
-### State View:
 ![MailItemTimerReset](https://raw.githubusercontent.com/Juanito99/SCOM.Addons.MailIn/master/PicturesForGitWebSite/MailItemTimerReset.png)
 
 
