@@ -27,6 +27,9 @@
 
 
 
+### Community Management Pack:
+Keep this and many other management packs automatically up to date by installing the [Community Management Pack](https://cookdown.com/scom-essentials/community-catalog/)
+
 
 
 ### License Terms
